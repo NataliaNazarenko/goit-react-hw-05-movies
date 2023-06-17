@@ -3,8 +3,9 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { TrendingMovies } from 'components/TrendingMovies';
 import { getTrendingMovies } from 'api/index.js';
 import { LoaderComponent } from 'components/Loader';
+import { Message } from 'components/Message';
 
-export function Home() {
+export default function Home() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [, setError] = useState(null);
@@ -28,7 +29,7 @@ export function Home() {
 
   return (
     <>
-      <h1>Trending today</h1>
+      <Message>{'Trending today'}</Message>
       <TrendingMovies movies={movies} />
 
       {isLoading && <LoaderComponent />}

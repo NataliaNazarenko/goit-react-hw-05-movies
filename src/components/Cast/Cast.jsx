@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getMovieCredits } from 'api/index.js';
 import { LoaderComponent } from 'components/Loader';
-import { List, Text } from './Cast.styled';
+import { ListCast, InfoName, InfoCharacter, DetailsItem, CastImage } from './Cast.styled';
 
 export function Cast() {
   const { movieId } = useParams();
@@ -33,11 +33,10 @@ export function Cast() {
     <>
       {isLoading && <LoaderComponent />}
 
-      <List>
+      <ListCast>
         {actors.map(({ id, profile_path, original_name, name, character }) => (
-          <li key={id}>
-            <img
-              width="150px"
+          <DetailsItem key={id}>
+            <CastImage
               src={
                 profile_path
                   ? `https://image.tmdb.org/t/p/w500${profile_path}`
@@ -45,11 +44,11 @@ export function Cast() {
               }
               alt={original_name}
             />
-            <Text>{name}</Text>
-            <Text>Character: {character}</Text>
-          </li>
+            <InfoName>{name}</InfoName>
+            <InfoCharacter>Character: {character}</InfoCharacter>
+          </DetailsItem>
         ))}
-      </List>
+      </ListCast>
       {actors.length === 0 && <div>Sorry, there is no information about the actors.</div>}
     </>
   );

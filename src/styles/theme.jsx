@@ -10,7 +10,9 @@ export const theme = Object.freeze({
   },
   fontSizes: {
     small: '14px',
-    medium: '18px',
+    medium: '16px',
+    mediumX: '18px',
+    average: '20px',
     large: '24px',
   },
   spacing: value => `${4 * value}px`,

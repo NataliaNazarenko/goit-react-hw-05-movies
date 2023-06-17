@@ -7,15 +7,16 @@ export const MoviesList = styled.ul`
 
 export const MoviesItem = styled.li`
   font-weight: 600;
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: ${props => props.theme.fontSizes.mediumX};
+  margin-bottom: ${props => props.theme.spacing(2.5)};
 `;
 
 export const Link = styled(NavLink)`
   text-decoration: none;
-  color: black;
+  color: ${props => props.theme.colors.dark};
 
   &:hover {
-    color: #0040ff;
+    color: ${props => props.theme.colors.accent};
+    border-bottom: 1px solid ${props => props.theme.colors.accent};
   }
 `;

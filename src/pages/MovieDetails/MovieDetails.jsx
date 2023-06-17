@@ -4,10 +4,24 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { BackLink } from 'components/ui/BackLink';
 import { getMovieDetails } from 'api/index.js';
 import { LoaderComponent } from 'components/Loader';
+import {
+  Link,
+  DetailsInfo,
+  DetailsItem,
+  GenresList,
+  GenresItem,
+  MovieContainer,
+  MovieImage,
+  MovieDetailsContainer,
+  MovieTitle,
+  MovieUserScore,
+  MovieOverview,
+  GenresContainer,
+  AdditionalInfoContainer,
+  AdditionalInfoTitle,
+} from './MovieDetails.styled';
 
-import { Link, DetailsInfo, DetailsItem, GenresList, GenresItem } from './MovieDetails.styled';
-
-export function MovieDetails() {
+export default function MovieDetails() {
   const [isLoading, setIsLoading] = useState(false);
   const [, setError] = useState(null);
   const [movieDetails, setMovieDetails] = useState({});
@@ -42,9 +56,8 @@ export function MovieDetails() {
       <BackLink to={backLinkHref}>Go back</BackLink>
       {isLoading && <LoaderComponent />}
       {movieDetails && (
-        <div>
-          <img
-            width="300px"
+        <MovieContainer>
+          <MovieImage
             src={
               poster_path
                 ? `https://image.tmdb.org/t/p/w500${poster_path}`
@@ -52,27 +65,29 @@ export function MovieDetails() {
             }
             alt={original_title}
           />
-          <div>
-            <h1>
+          <MovieDetailsContainer>
+            <MovieTitle>
               {title} ({release_date && release_date.slice(0, 4)})
-            </h1>
-            <p>User score: {popularity}</p>
+            </MovieTitle>
+            <MovieUserScore>User score: {popularity}</MovieUserScore>
             <h2>Overview</h2>
-            <p>{overview}</p>
+            <MovieOverview>{overview}</MovieOverview>
             <h2>Genres</h2>
             {genres && genres.length > 0 && (
-              <GenresList>
-                {genres.map(genre => (
-                  <GenresItem key={genre.id}>{genre.name}</GenresItem>
-                ))}
-              </GenresList>
+              <GenresContainer>
+                <GenresList>
+                  {genres.map(genre => (
+                    <GenresItem key={genre.id}>{genre.name}</GenresItem>
+                  ))}
+                </GenresList>
+              </GenresContainer>
             )}
-          </div>
-        </div>
+          </MovieDetailsContainer>
+        </MovieContainer>
       )}
 
-      <div>
-        <h3>Additional information</h3>
+      <AdditionalInfoContainer>
+        <AdditionalInfoTitle>Additional information</AdditionalInfoTitle>
         <DetailsInfo>
           <DetailsItem>
             <Link to="cast" state={{ from: locationRef.current }}>
@@ -89,7 +104,7 @@ export function MovieDetails() {
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
         </Suspense>
-      </div>
+      </AdditionalInfoContainer>
     </>
   );
 }

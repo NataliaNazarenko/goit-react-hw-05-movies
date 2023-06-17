@@ -6,7 +6,7 @@ import { LoaderComponent } from 'components/Loader';
 import { TrendingMovies } from 'components/TrendingMovies';
 import { SearchBar } from 'components/Searchbar';
 
-export function Movies() {
+export default function Movies() {
   const [searchMovies, setSearchMovies] = useState([]);
   const [, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -19,15 +19,7 @@ export function Movies() {
         setIsLoading(true);
         const results = await getSearchMoviesByQuery(searchQuery);
 
-        // if (inputValue.trim() === '') {
-        //   return Notify.warning('You didn`t enter anything in the search box. Please try again.');
-        // }
-
-        // if (!data.length) {
-        //   throw new Error('No matches found');
-        // }
         setSearchMovies(results);
-
         setError(null);
       } catch (error) {
         Notify.failure('Oops, something went wrong. Please try again.');

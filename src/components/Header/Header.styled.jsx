@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 
 export const HeaderWrapper = styled.header`
   border-bottom: 1px solid #ccc;
-  padding: 0.5em 0;
+  padding: ${props => props.theme.spacing(2)} 0;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 3rem;
+  margin-bottom: ${props => props.theme.spacing(5)};
 `;
 
 export const NavigationContainer = styled.nav``;
@@ -21,19 +21,19 @@ export const NavigationItem = styled.li`
   padding: 0;
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin: 1.4em 1em 1em 1em;
+  gap: ${props => props.theme.spacing(2)};
+  margin: ${props => props.theme.spacing(5)} ${props => props.theme.spacing(3.75)};
   color: black;
   cursor: pointer;
 `;
 
 export const Link = styled(NavLink)`
   text-decoration: none;
-  color: black;
+  color: ${props => props.theme.colors.dark};
   font-weight: 500;
 
   &.active {
-    color: #0040ff;
-    border-bottom: 1px solid #0040ff;
+    color: ${props => props.theme.colors.accent};
+    border-bottom: 1px solid ${props => props.theme.colors.accent};
   }
 `;

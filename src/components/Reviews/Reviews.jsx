@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getMovieReviews } from 'api/index.js';
 import { LoaderComponent } from 'components/Loader';
-import { List } from './Reviews.styled';
+import { Wrapper, ListReviews, DetailsItem, AuthorName, InfoContent } from './Reviews.styled';
 
 export function Reviews() {
   const { movieId } = useParams();
@@ -33,16 +33,16 @@ export function Reviews() {
     <>
       {isLoading && <LoaderComponent />}
       {reviews.length !== 0 && (
-        <div>
-          <List>
+        <Wrapper>
+          <ListReviews>
             {reviews.map(review => (
-              <li key={review.id}>
-                <h2>Author: {review.author}</h2>
-                <p>{review.content}</p>
-              </li>
+              <DetailsItem key={review.id}>
+                <AuthorName>Author: {review.author}</AuthorName>
+                <InfoContent>{review.content}</InfoContent>
+              </DetailsItem>
             ))}
-          </List>
-        </div>
+          </ListReviews>
+        </Wrapper>
       )}
       {reviews.length === 0 && <div>We don't have any reviews for this movie.</div>}
     </>

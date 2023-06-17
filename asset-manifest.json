@@ -1,13 +1,27 @@
 {
   "files": {
     "main.css": "/goit-react-hw-05-movies/static/css/main.cd2e038f.css",
-    "main.js": "/goit-react-hw-05-movies/static/js/main.91d23242.js",
+    "main.js": "/goit-react-hw-05-movies/static/js/main.c612919e.js",
+    "static/js/201.d3bced53.chunk.js": "/goit-react-hw-05-movies/static/js/201.d3bced53.chunk.js",
+    "static/js/635.fc08b201.chunk.js": "/goit-react-hw-05-movies/static/js/635.fc08b201.chunk.js",
+    "static/js/713.93921335.chunk.js": "/goit-react-hw-05-movies/static/js/713.93921335.chunk.js",
+    "static/js/93.1f8e7321.chunk.js": "/goit-react-hw-05-movies/static/js/93.1f8e7321.chunk.js",
+    "static/js/244.85c706ad.chunk.js": "/goit-react-hw-05-movies/static/js/244.85c706ad.chunk.js",
+    "static/js/51.6d1503d3.chunk.js": "/goit-react-hw-05-movies/static/js/51.6d1503d3.chunk.js",
+    "static/js/128.63423183.chunk.js": "/goit-react-hw-05-movies/static/js/128.63423183.chunk.js",
     "index.html": "/goit-react-hw-05-movies/index.html",
     "main.cd2e038f.css.map": "/goit-react-hw-05-movies/static/css/main.cd2e038f.css.map",
-    "main.91d23242.js.map": "/goit-react-hw-05-movies/static/js/main.91d23242.js.map"
+    "main.c612919e.js.map": "/goit-react-hw-05-movies/static/js/main.c612919e.js.map",
+    "201.d3bced53.chunk.js.map": "/goit-react-hw-05-movies/static/js/201.d3bced53.chunk.js.map",
+    "635.fc08b201.chunk.js.map": "/goit-react-hw-05-movies/static/js/635.fc08b201.chunk.js.map",
+    "713.93921335.chunk.js.map": "/goit-react-hw-05-movies/static/js/713.93921335.chunk.js.map",
+    "93.1f8e7321.chunk.js.map": "/goit-react-hw-05-movies/static/js/93.1f8e7321.chunk.js.map",
+    "244.85c706ad.chunk.js.map": "/goit-react-hw-05-movies/static/js/244.85c706ad.chunk.js.map",
+    "51.6d1503d3.chunk.js.map": "/goit-react-hw-05-movies/static/js/51.6d1503d3.chunk.js.map",
+    "128.63423183.chunk.js.map": "/goit-react-hw-05-movies/static/js/128.63423183.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cd2e038f.css",
-    "static/js/main.91d23242.js"
+    "static/js/main.c612919e.js"
   ]
 }

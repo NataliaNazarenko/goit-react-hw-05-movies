@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
-import { MoviesList, MoviesItem, Link } from './TrendingMovies.styled';
+import { ListMovies, MoviesItem, Link } from './MoviesList.styled';
 
-export const TrendingMovies = ({ movies }) => {
+export const MoviesList = ({ movies }) => {
   const location = useLocation();
 
   return (
     <>
-      <MoviesList>
+      <ListMovies>
         {movies.map(movie => (
           <MoviesItem key={movie.id}>
             <Link to={`/movies/${movie.id}`} state={{ from: location }}>
@@ -15,12 +15,12 @@ export const TrendingMovies = ({ movies }) => {
             </Link>
           </MoviesItem>
         ))}
-      </MoviesList>
+      </ListMovies>
     </>
   );
 };
 
-TrendingMovies.propTypes = {
+MoviesList.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,

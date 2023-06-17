@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { TrendingMovies } from 'components/TrendingMovies';
+import { MoviesList } from 'components/MoviesList';
 import { getTrendingMovies } from 'api/index.js';
 import { LoaderComponent } from 'components/Loader';
 import { Message } from 'components/Message';
@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <>
       <Message>{'Trending today'}</Message>
-      <TrendingMovies movies={movies} />
+      <MoviesList movies={movies} />
 
       {isLoading && <LoaderComponent />}
     </>

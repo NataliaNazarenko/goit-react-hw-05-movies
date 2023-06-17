@@ -3,12 +3,11 @@ import { useSearchParams } from 'react-router-dom';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getSearchMoviesByQuery } from 'api/index.js';
 import { LoaderComponent } from 'components/Loader';
-import { TrendingMovies } from 'components/TrendingMovies';
+import { MoviesList } from 'components/MoviesList';
 import { SearchBar } from 'components/Searchbar';
 
 export default function Movies() {
   const [searchMovies, setSearchMovies] = useState([]);
-  const [, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get('query') ?? '';
@@ -18,9 +17,7 @@ export default function Movies() {
       try {
         setIsLoading(true);
         const results = await getSearchMoviesByQuery(searchQuery);
-
         setSearchMovies(results);
-        setError(null);
       } catch (error) {
         Notify.failure('Oops, something went wrong. Please try again.');
       } finally {
@@ -38,10 +35,10 @@ export default function Movies() {
 
   return (
     <>
-      <SearchBar value={searchQuery} onChange={updateQueryString} />
+      <SearchBar onSubmit={updateQueryString} />
       {isLoading && <LoaderComponent />}
 
-      {searchMovies && <TrendingMovies movies={searchMovies} />}
+      {searchMovies && <MoviesList movies={searchMovies} />}
     </>
   );
 }

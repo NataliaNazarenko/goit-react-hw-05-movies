@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-export const MoviesList = styled.ul`
+export const ListMovies = styled.ul`
   list-style-type: none;
 `;
 

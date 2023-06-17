@@ -23,8 +23,7 @@ import {
 
 export default function MovieDetails() {
   const [isLoading, setIsLoading] = useState(false);
-  const [, setError] = useState(null);
-  const [movieDetails, setMovieDetails] = useState({});
+  const [movieDetails, setMovieDetails] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
@@ -37,7 +36,6 @@ export default function MovieDetails() {
         const data = await getMovieDetails(movieId);
 
         setMovieDetails(data);
-        setError(null);
       } catch (error) {
         Notify.failure('Oops, something went wrong. Please try again.');
       } finally {
@@ -48,6 +46,10 @@ export default function MovieDetails() {
     fetchMoviesDetails();
   }, [movieId]);
 
+  if (!movieDetails) {
+    return;
+  }
+
   const { title, release_date, popularity, overview, genres, poster_path, original_title } =
     movieDetails;
 
@@ -55,7 +57,7 @@ export default function MovieDetails() {
     <>
       <BackLink to={backLinkHref}>Go back</BackLink>
       {isLoading && <LoaderComponent />}
-      {movieDetails && (
+      {{ title, release_date, popularity, overview, genres, poster_path, original_title } && (
         <MovieContainer>
           <MovieImage
             src={
